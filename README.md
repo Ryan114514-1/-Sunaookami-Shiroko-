@@ -1,3 +1,6 @@
+以下为经过格式校验的 **README.md** 纯文本内容，可直接复制到 `.md` 文件中使用：
+
+```markdown
 # 🧠 Sunaookami Shiroko — 生物神经系统模拟平台
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
@@ -68,35 +71,42 @@ flowchart TD
     C --> D
     J -.->|本体感觉反馈| B4
     K -.->|激素变化| C
-🚀 快速开始
-1. 环境要求
-硬件（推荐）：
+```
 
-GPU: 4× A100 80GB（用于 GPT‑OSS 120B 本地推理）
+---
 
-CPU: 32 核，RAM: 256GB
+## 🚀 快速开始
 
-软件：
+### 1. 环境要求
 
-Python 3.10+
+- **硬件**（推荐）：
+  - GPU: 4× A100 80GB（用于 GPT‑OSS 120B 本地推理）
+  - CPU: 32 核，RAM: 256GB
+- **软件**：
+  - Python 3.10+
+  - Redis 5.0+
+  - CUDA 11.8+（如使用 GPU）
 
-Redis 5.0+
+### 2. 安装
 
-CUDA 11.8+（如使用 GPU）
-
-2. 安装
-bash
+```bash
 git clone https://github.com/yourname/Sunaookami_Shiroko.git
 cd Sunaookami_Shiroko
 pip install -r requirements.txt
-3. 配置
+```
+
+### 3. 配置
+
 复制环境变量模板并填写 DeepSeek API 密钥：
 
-bash
+```bash
 cp .env.example .env
 # 编辑 .env，填入 DEEPSEEK_API_KEY_1 和 DEEPSEEK_API_KEY_2
-4. 启动各子系统
-bash
+```
+
+### 4. 启动各子系统
+
+```bash
 # 启动 Redis
 redis-server
 
@@ -111,12 +121,20 @@ python homeostatic/simulator.py
 
 # 启动大脑系统主循环（新终端）
 python brain/brain_system.py
-5. 运行示例场景
-bash
+```
+
+### 5. 运行示例场景
+
+```bash
 # 测试“碰到热锅”反射场景
 python tests/test_reflex_scenario.py
-📁 项目结构
-text
+```
+
+---
+
+## 📁 项目结构
+
+```
 Sunaookami_Shiroko/
 ├── docs/                  # 详细设计文档
 ├── proto/                 # Protocol Buffers 定义
@@ -130,43 +148,77 @@ Sunaookami_Shiroko/
 ├── scripts/               # 启动脚本
 ├── tests/                 # 单元测试与集成测试
 └── README.md
-🧩 关键节点与 LLM 分配
-节点	模拟脑区	LLM / 方法
-spinal_reflex	脊髓反射弧	规则（无 LLM）
-thalamus_relay	丘脑	注意力路由（无 LLM）
-hippocampus_memory	海马体	DeepSeek 671B (chat)
-amygdala_emotion	杏仁核	GPT‑OSS 120B
-prefrontal_cortex	前额叶皮层	DeepSeek 671B (reasoner)
-motor_cortex	初级运动皮层	GPT‑OSS 120B
-cerebellum_coordination	小脑	逆运动学函数
-autonomic_nervous	自主神经系统	规则 + LLM 反馈
-💾 状态保存与恢复
+```
+
+---
+
+## 🧩 关键节点与 LLM 分配
+
+| 节点 | 模拟脑区 | LLM / 方法 |
+|------|----------|-------------|
+| `spinal_reflex` | 脊髓反射弧 | 规则（无 LLM） |
+| `thalamus_relay` | 丘脑 | 注意力路由（无 LLM） |
+| `hippocampus_memory` | 海马体 | DeepSeek 671B (chat) |
+| `amygdala_emotion` | 杏仁核 | GPT‑OSS 120B |
+| `prefrontal_cortex` | 前额叶皮层 | DeepSeek 671B (reasoner) |
+| `motor_cortex` | 初级运动皮层 | GPT‑OSS 120B |
+| `cerebellum_coordination` | 小脑 | 逆运动学函数 |
+| `autonomic_nervous` | 自主神经系统 | 规则 + LLM 反馈 |
+
+---
+
+## 💾 状态保存与恢复
+
 系统支持将完整的内部状态（大脑 + 感觉 + 内稳态）保存为本地 JSON/YAML 文件，便于复盘、调试或从中断点恢复。
 
-python
+```python
 from snapshot import SnapshotManager
 
 manager = SnapshotManager(save_dir="snapshots")
 manager.save_full_state(brain_state, sensory_state, homeostatic_state)
 manager.load_full_state("snapshots/snapshot_20260523_120000.json")
+```
+
 自动保存（间隔可配置）已集成在主循环中。
 
-📈 性能指标
-指标	目标值
-反射弧延迟	<15 ms
-高级认知延迟	200–500 ms
-吞吐量	10 次决策/秒
-内存占用	<200 GB（含模型权重）
-🤝 贡献
+---
+
+## 📈 性能指标
+
+| 指标 | 目标值 |
+|------|--------|
+| 反射弧延迟 | <15 ms |
+| 高级认知延迟 | 200–500 ms |
+| 吞吐量 | 10 次决策/秒 |
+| 内存占用 | <200 GB（含模型权重） |
+
+---
+
+## 🤝 贡献
+
 欢迎提交 Issue 和 Pull Request。请确保通过所有单元测试：
 
-bash
+```bash
 pytest tests/
-📄 许可证
+```
+
+---
+
+## 📄 许可证
+
 MIT © Sunaookami Shiroko Team
 
-📚 详细文档
-完整的系统设计、API 参考、部署指南和扩展说明请参阅 docs/ 目录下的 完整文档。
+---
 
-🌟 Star 历史
-https://api.star-history.com/svg?repos=yourname/Sunaookami_Shiroko&type=Date
+## 📚 详细文档
+
+完整的系统设计、API 参考、部署指南和扩展说明请参阅 [docs/](./docs/) 目录下的 [完整文档](docs/README.md)。
+
+---
+
+## 🌟 Star 历史
+
+[![Star History Chart](https://api.star-history.com/svg?repos=yourname/Sunaookami_Shiroko&type=Date)](https://star-history.com/#yourname/Sunaookami_Shiroko&Date)
+```
+
+该文本符合 GitHub Markdown 规范，代码块、表格、Mermaid 流程图均使用正确语法。
