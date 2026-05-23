@@ -1,6 +1,3 @@
-以下为经过格式校验的 **README.md** 纯文本内容，可直接复制到 `.md` 文件中使用：
-
-```markdown
 # 🧠 Sunaookami Shiroko — 生物神经系统模拟平台
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
