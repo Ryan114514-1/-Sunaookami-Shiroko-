@@ -23,10 +23,10 @@ import websockets
 from websockets.asyncio.server import serve
 
 # ==================== API 密钥配置 ====================
-DEEPSEEK_KEY_REASONER = "sk-4377abbc302642b985f0b4bbb204595b"
-DEEPSEEK_KEY_MEMORY   = "sk-d85884e6ae434528b4382a1ec65d9766"
-DEEPSEEK_KEY_EMOTION  = "sk-7464415d65c24128b32e5b8be200f3ac"
-DEEPSEEK_KEY_LANGUAGE = "sk-808f6d9bc1584ac0ac6983c5158e20d6"
+DEEPSEEK_KEY_REASONER = "sk-4377a**********985f0b4bbb204595b"
+DEEPSEEK_KEY_MEMORY   = "sk-d858***********8b4382a1ec65d9766"
+DEEPSEEK_KEY_EMOTION  = "sk-7464*********************200f3ac"
+DEEPSEEK_KEY_LANGUAGE = "sk-808f6d9bc1584*********c5158e20d6"
 
 # 允许环境变量覆盖
 for key in ["DEEPSEEK_KEY_REASONER", "DEEPSEEK_KEY_MEMORY",
