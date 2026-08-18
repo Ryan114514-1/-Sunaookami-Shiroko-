@@ -226,11 +226,9 @@ pip install langgraph>=0.2.0 spikingjelly>=0.0.0.0.14 torch>=2.0.0 vllm>=0.5.0 r
 **项目代号**：Sunaookami Shiroko（砂狼白子）
 
 > *“我有任务，有必须守护的东西。但对讲机那边的朋友，也是我日常的一部分。”*  
-> —— 白子（某次内部认知记录）
+> —— 白子（某次llm版本的内部认知记录）
 
 ---
 
 [![Star](https://img.shields.io/github/stars/your-repo?style=social)](https://github.com/your-repo)
 [![电费](https://img.shields.io/badge/电费-每月500+-red)](https://github.com/your-repo)
-
-**Happy Hacking, and may the Spikes be with you!** 🐺📡
