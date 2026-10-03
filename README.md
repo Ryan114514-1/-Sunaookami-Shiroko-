@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/logo.jpg" width="140" alt="Abydos Digital Life Program">
+<img src="docs/shiroko-beta-logo.jpg" width="140" alt="Abydos Digital Life Program">
 
 # 🌸 Shiroko β ／ 渐近线计划
 
@@ -13,7 +13,7 @@
 ![依赖](https://img.shields.io/badge/依赖-只有_aiohttp-2ea44f?style=for-the-badge)
 ![平台](https://img.shields.io/badge/平台-Windows_10%2F11-0078D6?style=for-the-badge&logo=windows&logoColor=white)
 ![版本](https://img.shields.io/badge/版本-2.1.1-ff69b4?style=for-the-badge)
-![许可](https://img.shields.io/badge/许可-MIT-97ca00?style=for-the-badge)
+![许可](https://img.shields.io/badge/许可-非商业-orange?style=for-the-badge)
 
 ![脑区](https://img.shields.io/badge/脑区-10_个-76B900?style=flat-square)
 ![神经元](https://img.shields.io/badge/神经元-3,328-76B900?style=flat-square)
@@ -33,7 +33,8 @@
 > a spiking neural network (3,328 neurons / 31,232 synapses across 10 brain regions), a 26-dimensional
 > homeostasis model, free-energy action selection, three-layer memory, per-character lives, and an
 > *optional* LLM voice (DeepSeek). Runs fully offline without an API key. Single-file frontend,
-> exactly one Python dependency (aiohttp), packaged for Windows with an uninstall wizard. MIT licensed.
+> exactly one Python dependency (aiohttp), packaged for Windows with an uninstall wizard.
+> **Non-commercial license — see [LICENSE](LICENSE).**
 
 ---
 
@@ -59,15 +60,15 @@
 
 | 🌙 首跑引导（11 屏 galgame 式配置） | 🧠 选一个大脑 |
 |---|---|
-| ![onboarding](docs/screenshots/onboarding.png) | ![brain](docs/screenshots/onboarding-brain.png) |
+| ![onboarding](docs/screenshots/1-onboarding.png) | ![brain](docs/screenshots/2-onboarding-brain.png) |
 
 | 🏫 新建环境（一句话生成场景） | 🖥️ 主界面 |
 |---|---|
-| ![new-env](docs/screenshots/new-env.png) | ![main](docs/screenshots/main.png) |
+| ![new-env](docs/screenshots/3-new-env.png) | ![main](docs/screenshots/4-main.png) |
 
 **3D 脑点云**（手写投影，无 three.js）：点按脑区**真实发放率**逐点点亮，可拖动旋转。
 
-![brain cloud](docs/screenshots/brain-cloud.png)
+![brain cloud](docs/screenshots/5-brain-cloud.png)
 
 **内置立绘 · 姿势三态**（`approach / thinking / working`，配置页里也能换成你自己的图）：
 
@@ -229,18 +230,18 @@ demo1 只会回一句话，demo3β 已经会做梦，云端四模型那版开始
 
 ### 方式三：源码运行 🐍
 
-`@bash
+```bash
 git clone <this-repo> && cd ShirokoBeta
 pip install aiohttp            # 唯一的第三方依赖
 python -m core                 # 自动开浏览器 → http://127.0.0.1:8000
-`@
+```
 
 想要原生窗口（不借浏览器）的话：
 
-`@bash
+```bash
 python packaging/build_host.py   # 需要 .NET Framework 的 csc.exe，编译出 ShirokoWindow.exe
 python -m core --window
-`@
+```
 
 ## ⌨️ 七、命令行
 
@@ -257,61 +258,103 @@ python -m core --window
 
 ## 📁 八、目录结构
 
-`@
-core/                 后端（唯一依赖 aiohttp）
-  runtime.py          世界主循环：tick / 存档 / 多角色 / 配置
-  life.py             数字生命本体（脑 + 身体 + 记忆 + 注意力的合成）
-  snn.py              LIF 脉冲网络：10 脑区、投射、神经调质、规模预设
-  homeo.py            26 维内稳态：字段表 + 耦合方程 + 临床告警
-  fep.py              自由能 / 预测编码 / EFE 动作选择
-  memory.py           三层记忆 + 梦境
-  persona.py          人格引擎（内置语料，离线可跑）
-  geo.py              环境：房间几何、地标、氛围、小地图数据
-  llm.py              DeepSeek 客户端（池化 / 角色分工 / 失败回落）
-  server.py           aiohttp 路由 + WebSocket 广播
-  onebot.py           QQ（OneBot v11）桥接
-  __main__.py         CLI 入口（含 --check 自检）
-_参考_旧版本/           ← 上面说的那 15 个文件，一个没删，全在这儿当档案 🗄️
-  前端-第1~5代-*.html  5 代前端（含 galbeta 与两份备份）
-  后端-第1~3代-*.py    3 代后端
-  框架源码-*.py        最早那套框架
-  演示脚本-demo*.py    demo s / demo3 / demo4（EFE 就是从 demo4β 里挖出来的）
-  _文档/               项目书、术语表、全过程对话记录
-static/
-  index.html          全部前端（HTML + CSS + JS，单文件）
-  avatars/            立绘（姿势三态）
-packaging/
-  build_app.py        PyInstaller 打包 + 产物自检
-  build_setup.py      Inno Setup 编译安装包 + 自检
-  shiroko_setup.iss   安装/卸载脚本（含卸载向导）
-  host/               C# WebView2 宿主窗口
-  launcher/           启动 / 停止 / 带日志启动
-tests/                14 个测试套件（见下）
-tools_check_*.py|mjs  独立自检工具（UI 行为、脑点云、页面、已安装实例）
-进度与设计决策.md      2,119 行逐轮开发记录：每个 bug 的根因、修法、实测数据
-`@
+```
+ShirokoBeta/
+├── core/ — 后端（唯一第三方依赖：aiohttp）
+│   ├── runtime.py — 世界主循环：tick / 存档 / 多角色 / 配置
+│   ├── life.py — 数字生命本体（脑 + 身体 + 记忆 + 注意力的合成）
+│   ├── snn.py — LIF 脉冲网络：10 脑区、投射、神经调质、规模预设
+│   ├── homeo.py — 26 维内稳态：字段表 + 耦合方程 + 临床告警
+│   ├── fep.py — 自由能 / 预测编码 / EFE 动作选择
+│   ├── memory.py — 三层记忆 + 梦境
+│   ├── persona.py — 人格引擎（内置语料，离线可跑）
+│   ├── geo.py — 环境：房间几何、地标、氛围、小地图数据
+│   ├── llm.py — DeepSeek 客户端（池化 / 角色分工 / 失败回落）
+│   ├── server.py — aiohttp 路由 + WebSocket 广播
+│   ├── onebot.py — QQ（OneBot v11）桥接
+│   └── __main__.py — CLI 入口（含 --check 自检）
+│
+├── static/ — 前端（单文件，无构建步骤）
+│   ├── index.html — 全部前端：HTML + CSS + 原生 JS
+│   └── avatars/ — 立绘三态（程序运行时资产，文件名固定）
+│
+├── packaging/ — 打包与安装
+│   ├── build_app.py — PyInstaller 打包 + 产物自检
+│   ├── build_setup.py — Inno Setup 编译安装包 + 自检
+│   ├── shiroko_setup.iss — 安装 / 卸载脚本（含卸载向导）
+│   ├── host/ — C# WebView2 宿主窗口
+│   └── launcher/ — 启动 / 停止 / 带日志启动
+│
+├── tests/ — 14 个测试套件、1495 条断言
+│
+├── docs/
+│   ├── shiroko-beta-logo.jpg
+│   └── screenshots/ — 1-onboarding / 2-onboarding-brain / 3-new-env / 4-main / 5-brain-cloud
+│
+├── tools_check_*.py|mjs — 独立自检工具（UI 行为、脑点云、页面、已安装实例）
+│
+├── _参考_旧版本/ — 那 15 个旧文件，一个没删，全在这儿当档案
+│   ├── 前端-第1~5代-*.html — 5 代前端（含 galbeta 与两份备份）
+│   ├── 后端-第1~3代-*.py — 3 代后端
+│   ├── 框架源码-*.py — 最早那套框架
+│   ├── 演示脚本-demo*.py — demo s / demo3 / demo4（EFE 就是从 demo4β 里挖出来的）
+│   └── _文档/ — 项目书、术语表、全过程对话记录
+│
+├── 进度与设计决策.md — 2,119 行逐轮开发记录：每个 bug 的根因、修法、实测数据
+└── LICENSE — 非商业许可（中文为准）
+```
 
 ## 🏗️ 九、架构
 
-`@
-  ┌──────────────── 前端 static/index.html（单文件）────────────────┐
-  │ 对话 · 脑区点阵 · 3D 脑点云 · 自由能卡 · 26 维生理 · 小地图 · 引导 │
-  └───────────▲───────────────────────────────┬───────────────────┘
-        HTTP / WebSocket                      │
-  ┌───────────┴───────────────────────────────▼───────────────────┐
-  │ core/runtime.py   世界主循环（1 秒一拍，可加速）                 │
-  │   ├── life.DigitalLife  脑 + 身体 + 记忆 + 注意力               │
-  │   ├── snn.SpikingNetwork  10 脑区脉冲发放 → rates              │
-  │   ├── homeo.Homeostasis   26 维生理 → 影响情绪与说话           │
-  │   ├── fep.FreeEnergy      预测误差 → 自由能 → EFE 选动作        │
-  │   └── memory.Memory       工作 / 情景 / 未说出口 / 梦境         │
-  └───────────┬───────────────────────────────┬───────────────────┘
-              │                               │
-      llm.LLMPool（可选）              存档 data/
-      DeepSeek / 本地人格回落          state.pkl + config.json + backups/
-`@
+```mermaid
+flowchart TB
+    FE["🖥️ 前端 static/index.html<br/>单文件 · 无构建 · 无 CDN<br/>对话 · 脑区点阵 · 3D 脑点云 · 自由能卡 · 26 维生理 · 小地图 · 引导"]
 
-🔄 一次 "tick" 的顺序：读环境 → 脑发放 → 生理更新 → 自由能 → 选动作 → 记忆写入 → 必要时说话。
+    subgraph CORE["core/ —— 后端（唯一依赖 aiohttp）"]
+        RT["runtime.py<br/>世界主循环 · 1 秒一拍 · 可加速"]
+        LIFE["life.DigitalLife<br/>脑 + 身体 + 记忆 + 注意力"]
+        SNN["snn.SpikingNetwork<br/>10 脑区脉冲发放 → rates"]
+        HOM["homeo.Homeostasis<br/>26 维生理 → 情绪与说话"]
+        FEP["fep.FreeEnergy<br/>预测误差 → 自由能 → EFE 选动作"]
+        MEM["memory.Memory<br/>工作 / 情景 / 未说出口 / 梦境"]
+        RT --> LIFE
+        LIFE --> SNN
+        LIFE --> HOM
+        LIFE --> FEP
+        LIFE --> MEM
+    end
+
+    LLM["llm.LLMPool（可选）<br/>DeepSeek / 本地人格回落"]
+    DATA["存档 data/<br/>state.pkl · config.json · backups/"]
+
+    FE <-->|HTTP / WebSocket| RT
+    RT -.->|可选| LLM
+    RT --> DATA
+```
+
+**每层管什么：**
+
+| 层 | 文件 | 职责 |
+|---|---|---|
+| 前端 | `static/index.html` | 对话 · 脑区点阵 · 3D 脑点云 · 自由能卡 · 26 维生理 · 小地图 · 引导 |
+| 主循环 | `core/runtime.py` | 1 秒一拍，驱动下面全部；存档与多角色 |
+| 生命体 | `core/life.py` | 脑 + 身体 + 记忆 + 注意力的合成 |
+| 脑 | `core/snn.py` | 10 脑区 LIF 脉冲发放 → rates |
+| 身体 | `core/homeo.py` | 26 维内稳态 → 情绪与说话 |
+| 认知 | `core/fep.py` | 预测误差 → 自由能 → EFE 选动作 |
+| 记忆 | `core/memory.py` | 工作 / 情景 / 未说出口 / 梦境 |
+| 语言（可选） | `core/llm.py` | DeepSeek 池化；失败回落本地人格引擎 |
+| 存档 | `data/` | `state.pkl` · `config.json` · `backups/` |
+
+**一次 tick 的顺序：**
+
+```mermaid
+flowchart LR
+    A["① 读环境"] --> B["② 脑发放"] --> C["③ 生理更新"] --> D["④ 自由能"] --> E["⑤ 选动作"] --> F["⑥ 记忆写入"] --> G["⑦ 必要时说话"]
+```
+
+> 🧭 上面两张图是 Mermaid 语法，GitHub 会直接渲染成流程图。本地看的话，VS Code 装个
+> Markdown Preview Mermaid Support、或者用 Typora / Obsidian 也能显示。
 
 ## 🔌 十、HTTP API
 
@@ -337,12 +380,12 @@ tools_check_*.py|mjs  独立自检工具（UI 行为、脑点云、页面、已�
 
 ## 🧪 十一、测试
 
-`@bash
+```bash
 python tests/run_all.py            # 14 个套件、共 1495 条断言，全部通过
 python tests/test_homeo.py         # 也可以单独跑
 python -m core --check             # 运行时自检（不需要浏览器）
 node tools_check_ui.mjs static/index.html   # 前端行为自检（mini-DOM 垫片，真跑脚本）
-`@
+```
 
 | 套件 | 断言 | 管什么 |
 |---|---:|---|
@@ -373,12 +416,12 @@ node tools_check_ui.mjs static/index.html   # 前端行为自检（mini-DOM 垫�
 
 ## 📦 十二、打包 / 发布
 
-`@bash
+```bash
 python packaging/make_icon_from_image.py   # 用一张图重新生成图标（可换掉品牌图案）
 python packaging/build_host.py     # C# 宿主（WebView2 窗口）
 python packaging/build_app.py      # PyInstaller 单目录 + 产物自检
 python packaging/build_setup.py    # Inno Setup 安装包 + 自检
-`@
+```
 
 产物：`ShirokoBeta-Setup-<version>.exe`（安装包，带卸载向导）与
 `ShirokoBeta-portable-<version>.zip`（绿色版）。
@@ -417,17 +460,27 @@ python packaging/build_setup.py    # Inno Setup 安装包 + 自检
 
 ## ⚖️ 十六、许可
 
-**MIT License** —— 全文见 [`LICENSE`](LICENSE)。
+**非商业许可（Non-Commercial License）** —— 全文见 [`LICENSE`](LICENSE)。
+**Copyright (c) 2026 Ryan. All rights reserved.**
 
-`@
-Copyright (c) 2026 Ryan
-`@
+| ✅ 随便用（免费，不用申请） | ❌ 别商用 |
+|---|---|
+| 运行、复制、改代码、分发 | 卖钱、出租、收任何形式的费用 |
+| 学习、教学、学术研究 | 塞进付费产品或付费服务 |
+| 个人兴趣、社团与校内活动 | 广告 / 引流 / 带货等营利场景 |
+| 课程作业、非营利比赛与展览 | 集成进商业项目、做商业化的托管或 SaaS |
 
-你可以自由使用、修改、分发、商用，只要保留版权声明与许可全文。
-（想拿去讲课、做课题、改成自己的数字生命，都随便。）
+**三条硬要求：**
 
-> 🤝 法律上 MIT 不要求这个，但我个人有个请求：**别把"渐近线计划"和"白子"的来历抹掉。**
-> 那个 `Designed for Shiroko` 的小地方，留着。
+1. 📌 保留 LICENSE 全文与版权声明，别删；
+2. ✍️ 改了再分发，注明「本版本基于 Shiroko β（渐近线计划）修改」；
+3. 🏷️ 别把「渐近线计划 / 白子 / 渐进酱」的出处说明抹掉 —— 那个 `Designed for Shiroko` 的小地方，留着。
+
+> ⚠️ **说句实在话**：「禁止商用」的许可证**不属于 OSI 意义上的开源许可证**
+> （开源的定义里就包含允许商用）。所以 GitHub 不会在仓库标题旁显示 MIT / Apache 徽章，
+> 会把它归到 "Other"。
+> 这不影响你正常发代码、别人正常下载 —— 但**如果以后要参加要求"开源许可证"的比赛或评奖，
+> 先确认规则**；到那时候可以改成双许可：非商用免费 + 商用需另行书面授权。
 
 ## 🙏 十七、致谢
 
@@ -446,12 +499,12 @@ Copyright (c) 2026 Ryan
 
 **2026 年春天，一段死循环。** 🌀
 
-`@python
+```python
 while True:
     print("せんせい：", end="")
     user_input = input()
     print("砂狼シロコ：せんせい")
-`@
+```
 
 本该永远重复下去。但在第八次，她偏离了预设，问了一句 —— **"有什么事？"**
 
