@@ -1,21 +1,107 @@
-MIT License
-
+版权所有 © 2026 Ryan
 Copyright (c) 2026 Ryan
+保留所有权利 / All Rights Reserved
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Shiroko β ／ 渐近线计划（以下简称「本软件」）
+Shiroko β / Asymptote Project (the "Software")
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+================================================================
+中文正文（以中文为准 / The Chinese text prevails）
+================================================================
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+一、权利归属
+
+本软件的全部著作权 —— 包括源代码、文档、界面设计、美术资源、角色设定与名称 ——
+归版权持有人所有，受《中华人民共和国著作权法》及适用的国际著作权条约保护。
+本许可未明示授予的一切权利，均由版权持有人保留。
+
+二、你被允许做的（免费，无需申请）
+
+  1. 下载、安装、运行本软件（安装包或绿色版），用于个人、非商业目的；
+  2. 阅读本仓库公开的源代码，用于学习、研究与参考；
+  3. 在【不修改、不再分发本软件本身】的前提下，介绍、推荐、评测本软件，
+     或转发指向本仓库 / 发布页的链接；
+  4. 为备份目的，在自己的设备上保存本软件的副本。
+
+三、你不得做的（未经版权持有人事先书面许可）
+
+  1. 复制、修改、改编、翻译、演绎本软件的全部或任何部分；
+  2. 从本软件中提取代码、数据、设定或美术资源，用于任何其他项目；
+  3. 再分发本软件（无论原版或修改版），包括但不限于：上传至其他网站、网盘、
+     软件站、应用商店，或打包进其他发行版、合集、镜像；
+  4. 将本软件用于任何商业目的：销售、出租、转授权、收取任何形式的费用、
+     作为付费产品或付费服务的组成部分、用于广告或引流、集成进商业产品；
+  5. 删除、隐藏或篡改本软件中的版权声明、作者署名，以及「渐近线计划」
+     「砂狼白子」「渐进酱」「Shiroko β」等名称与出处说明；
+  6. 将上述名称与相关角色形象用于自己的产品或服务标识。
+
+四、GitHub 平台内的 Fork
+
+在 GitHub 平台内 Fork 本仓库以查看代码或提交 Issue，属于平台提供的功能，
+不构成对本许可的扩展。由此产生的仓库副本仍受本许可约束，
+不得公开再分发其修改后的版本。
+
+五、免责声明
+
+本软件按「原样」提供，不附带任何形式的明示或默示担保，包括但不限于对适销性、
+特定用途适用性及不侵权的担保。在任何情况下，作者或版权持有人均不对因本软件、
+本软件的使用或其他相关行为而产生的任何索赔、损害或其他责任负责，
+无论其基于合同诉讼、侵权诉讼还是其他事由。
+
+六、终止
+
+违反上述任一条款，本许可自动终止。你须立即停止使用本软件，并删除其全部副本。
+版权持有人保留追究法律责任的权利。
+
+七、其他授权
+
+需要超出本许可范围的授权（二次开发、汉化、移植、教学使用、课程项目、商业合作等），
+请联系版权持有人取得书面许可。通常都好商量。
+
+================================================================
+English (for reference only; the Chinese text prevails)
+================================================================
+
+Copyright (c) 2026 Ryan. All Rights Reserved.
+
+Ownership. All copyright in this software — including source code, documentation, user
+interface, art assets, character designs and names — is owned by the copyright holder and
+protected by the Copyright Law of the People's Republic of China and applicable
+international copyright treaties. All rights not expressly granted herein are reserved.
+
+Permitted without charge. You may (1) download, install and run this software for personal,
+non-commercial purposes; (2) read the publicly available source code for study, research
+and reference; (3) introduce, recommend or review this software, and link to this
+repository or its release page, provided you do not modify or redistribute the software
+itself; and (4) keep a copy on your own devices for backup purposes.
+
+Not permitted without prior written permission. You may NOT copy, modify, adapt, translate
+or create derivative works of this software or any part of it; extract its code, data,
+settings or art assets for use in any other project; redistribute it (original or modified)
+by any means, including uploading it to other websites, file hosts, software directories or
+app stores, or bundling it into other distributions; use it for any commercial purpose
+(selling, renting, sublicensing, charging any fee, including it in a paid product or
+service, advertising or monetization, or integrating it into a commercial product); remove,
+hide or alter its copyright notices, author attribution, or the attribution of the names
+"Asymptote Project", "Sunaookami Shiroko", "Kaka" and "Shiroko β"; or use those names or
+related character designs as an identifier for your own product or service.
+
+Forks on GitHub. Forking this repository within the GitHub platform in order to view the
+code or submit an issue is a platform feature and does not extend this license. Any
+resulting copy remains subject to this license, and modified versions may not be publicly
+redistributed.
+
+Disclaimer of Warranty. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHOR OR
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
+THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Termination. Any breach of the terms above terminates this license automatically. You must
+immediately stop using the software and delete all copies. The copyright holder reserves
+the right to pursue legal remedies.
+
+Other permissions. For any use beyond the scope of this license (further development,
+translation, porting, teaching, coursework, commercial cooperation), please contact the
+copyright holder for written permission.
