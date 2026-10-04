@@ -76,6 +76,8 @@
 |---|---|---|
 | ![a1](static/avatars/kanban_1.png) | ![a2](static/avatars/kanban_2.png) | ![a3](static/avatars/kanban_3.png) |
 
+联系方式: wjx922111@Outlook.com
+
 ---
 
 ## 🧩 二、整合的意义（这一版到底干了什么）
